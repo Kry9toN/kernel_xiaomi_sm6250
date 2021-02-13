@@ -8,6 +8,8 @@ steps:
   environment:
     token:
       from_secret: bot_api
+    DEVICE: miatoll
   commands:
-  - wget https://raw.githubusercontent.com/Kry9toN/Scripts/master/kernel/CI/joyeuse/aosp
-  - bash aosp
+  - git clone https://github.com/Kry9toN-Project/Drone-CI
+  - mv Drone-CI/* ..
+  - bash main.sh

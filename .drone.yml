@@ -11,5 +11,5 @@ steps:
     DEVICE: miatoll
   commands:
   - git clone https://github.com/Kry9toN-Project/Drone-CI
-  - mv Drone-CI/* ..
+  - mv Drone-CI/* .
   - bash main.sh

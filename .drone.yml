@@ -17,11 +17,16 @@ steps:
       from_secret: sf_pass
     DEVICE: miatoll
     POST_DIR: miatoll
-    RELEASE: false
+    RELEASE: true
     CODENAME: Kryogen
     TYPE: BLC
     CHANGELOG: |
-      Merge last 4.14.x version
+      Merge kernel tag 4.14.207
+      Update sdfat driver v2.4.5
+      Fix GPU latency for high frame rate
+      Adding conservative governor v2
+      Base from A10 Kernel Joyeuse
+      Support A12 (Tested on Komodo OS A12)
   commands:
   - git clone https://github.com/Kry9toN-Project/Drone-CI
   - mv Drone-CI/* .

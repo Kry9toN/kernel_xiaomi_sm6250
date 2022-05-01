@@ -17,7 +17,7 @@ steps:
       from_secret: sf_pass
     DEVICE: miatoll
     POST_DIR: miatoll
-    RELEASE: true
+    RELEASE: false
     CODENAME: Kryogen
     TYPE: BLC
     CHANGELOG: |

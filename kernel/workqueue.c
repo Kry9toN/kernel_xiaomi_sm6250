@@ -49,6 +49,7 @@
 #include <linux/moduleparam.h>
 #include <linux/uaccess.h>
 #include <linux/nmi.h>
+#include <linux/delay.h>
 #include <linux/kvm_para.h>
 #include <linux/rcuwait.h>
 
@@ -1295,7 +1296,7 @@ fail:
 	local_irq_restore(*flags);
 	if (work_is_canceling(work))
 		return -ENOENT;
-	cpu_relax();
+	cpu_chill();
 	return -EAGAIN;
 }
 

@@ -1,0 +1,55 @@
+version: 2
+jobs:
+  nightly:
+    docker:
+      - image: kry9ton/image:latest
+        environment:
+          DEVICE: miatoll
+          CODENAME: Myesha
+    steps:
+      - checkout
+      - run:
+          command: |
+            git clone https://github.com/Kry9toN-Project/Drone-CI
+            mv Drone-CI/* .
+            bash nightly.sh
+  build:
+    docker:
+      - image: kry9ton/image:latest
+        environment:
+          DEVICE: miatoll
+          POST_DIR: miatoll
+          RELEASE: false
+          CODENAME: Kryogen
+          TYPE: BLC
+          CHANGELOG: |
+            Merge kernel tag 4.14.207
+            Update sdfat driver v2.4.5
+            Fix GPU latency for high frame rate
+            Adding conservative governor v2
+            Base from A10 Kernel Joyeuse
+            Support A12 (Tested on Komodo OS A12)
+    steps:
+      - checkout
+      - run:
+          command: |
+            git clone https://github.com/Kry9toN-Project/Drone-CI
+            mv Drone-CI/* .
+            bash main.sh
+
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+  nightly:
+    jobs:
+      - nightly
+    triggers:
+      - schedule:
+          cron: "0 1 * * *"
+          filters:
+            branches:
+              only:
+                - main

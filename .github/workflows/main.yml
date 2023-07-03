@@ -1,0 +1,31 @@
+name: Build Kernel
+
+on: workflow_dispatch
+
+env:
+  token: ${{ secrets.TOKEN }}
+  github_cert: ${{ secrets.GITHUB_CERT }}
+  SF_PASS: ${{ secrets.SF_PASS }}
+  DEVICE: miatoll
+  POST_DIR: miatoll
+  RELEASE: false
+  CODENAME: Kryogen
+  TYPE: BLC
+  CHANGELOG: |
+   Merge kernel tag 4.14.207
+   Update sdfat driver v2.4.5
+   Fix GPU latency for high frame rate
+   Adding conservative governor v2
+   Base from A10 Kernel Joyeuse
+   Support A12 (Tested on Komodo OS A12)
+
+jobs:
+  masak:
+    runs-on: ubuntu-lastest
+    container: kry9ton/image:latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+         git clone https://github.com/Kry9toN-Project/Drone-CI
+         mv Drone-CI/* .
+         bash main.sh

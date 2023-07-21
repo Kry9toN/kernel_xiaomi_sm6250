@@ -5,7 +5,7 @@ jobs:
       - image: kry9ton/image:latest
         environment:
           DEVICE: miatoll
-          CODENAME: Myesha
+          CODENAME: Track
     steps:
       - checkout
       - run:
@@ -20,16 +20,15 @@ jobs:
         environment:
           DEVICE: miatoll
           POST_DIR: miatoll
-          RELEASE: false
-          CODENAME: Kryogen
+          RELEASE: true
+          CODENAME: Track
           TYPE: BLC
           CHANGELOG: |
-            Merge kernel tag 4.14.207
-            Update sdfat driver v2.4.5
-            Fix GPU latency for high frame rate
-            Adding conservative governor v2
-            Base from A10 Kernel Joyeuse
-            Support A12 (Tested on Komodo OS A12)
+            Rebase to caf source thanks to @dreadnoughtOO7
+            Support KernelSU 11089
+            Support DriveDroid apps
+            This initial release from new base
+            Tested on A13
     steps:
       - checkout
       - run:
@@ -37,7 +36,6 @@ jobs:
             git clone https://github.com/Kry9toN-Project/Drone-CI
             mv Drone-CI/* .
             bash main.sh
-
 
 workflows:
   version: 2

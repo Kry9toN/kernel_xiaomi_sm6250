@@ -5,7 +5,7 @@ jobs:
       - image: kry9ton/image:latest
         environment:
           DEVICE: miatoll
-          CODENAME: Myesha
+          CODENAME: HackTon
     steps:
       - checkout
       - run:
@@ -21,15 +21,9 @@ jobs:
           DEVICE: miatoll
           POST_DIR: miatoll
           RELEASE: false
-          CODENAME: Kryogen
-          TYPE: BLC
-          CHANGELOG: |
-            Merge kernel tag 4.14.207
-            Update sdfat driver v2.4.5
-            Fix GPU latency for high frame rate
-            Adding conservative governor v2
-            Base from A10 Kernel Joyeuse
-            Support A12 (Tested on Komodo OS A12)
+          CODENAME: HackTon
+          TYPE: HCK
+          CHANGELOG: • Base on BLC version<br>• Support wifi injection<br>• Support rtl88xxau and rtl8xxxu<br>• All change for nethunter device kernel
     steps:
       - checkout
       - run:
@@ -37,7 +31,6 @@ jobs:
             git clone https://github.com/Kry9toN-Project/Drone-CI
             mv Drone-CI/* .
             bash main.sh
-
 
 workflows:
   version: 2

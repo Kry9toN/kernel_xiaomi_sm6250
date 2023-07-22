@@ -20,7 +20,7 @@ jobs:
         environment:
           DEVICE: miatoll
           POST_DIR: miatoll
-          RELEASE: false
+          RELEASE: true
           CODENAME: HackTon
           TYPE: HCK
           CHANGELOG: • Base on BLC version<br>• Support wifi injection<br>• Support rtl88xxau and rtl8xxxu<br>• All change for nethunter device kernel

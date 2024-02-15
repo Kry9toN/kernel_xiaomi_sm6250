@@ -20,7 +20,7 @@ jobs:
         environment:
           DEVICE: miatoll
           POST_DIR: miatoll
-          RELEASE: true
+          RELEASE: false
           CODENAME: Track
           TYPE: BLC
           CHANGELOG: |
